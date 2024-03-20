@@ -2,9 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::prefix('products')->controller(ProductController::class)->group(function 
         Route::delete('/{id}/delete', 'destroy');
     });
 });
-
+Route::post('/orders', [OrderController::class, 'store'])->middleware('auth:sanctum');
 
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

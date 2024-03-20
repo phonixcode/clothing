@@ -15,12 +15,15 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->json('order_items');
-            $table->string('order_number', 10)->unique();
+            $table->string('order_number')->unique();
             $table->float('total_amount')->default(0);
             $table->string('payment_method')->default('cod');
             $table->enum('payment_status', ['paid', 'unpaid'])->default('unpaid');
             $table->enum('order_status', ['pending', 'processing', 'delivered', 'cancelled'])->default('pending');
             $table->float('delivery_charge')->default(0)->nullable();
+            $table->string('shipping_address')->nullable();
+            $table->string('shipping_city')->nullable();
+            $table->string('shipping_country')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
