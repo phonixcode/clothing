@@ -23,19 +23,18 @@ class OrderController extends Controller
             'shipping_country' => 'required|string',
         ]);
 
-        // $order = Order::create($validatedData);
         $order = Order::create($validatedData);
 
-        Mail::to('admin@example.com')->send(new OrderPlacedNotification($order));
+        Mail::to('alanson328@gmail.com')->send(new OrderPlacedNotification($order));
 
         // After a successful order is placed, update the product stocks
-        // foreach ($order->order_items as $item) {
-        //     $product = Product::find($item['product_id']);
-        //     if ($product) {
-        //         $product->stock -= $item['quantity'];
-        //         $product->save();
-        //     }
-        // }
+        foreach ($order->order_items as $item) {
+            $product = Product::find($item['product_id']);
+            if ($product) {
+                $product->stock -= $item['quantity'];
+                $product->save();
+            }
+        }
         
         return response()->json(['message' => 'Order placed successfully', 'order' => $order], 201);
     }
