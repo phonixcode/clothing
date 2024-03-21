@@ -11,3 +11,66 @@ Follow these steps to set up the project on your local machine.
 - PHP >= 8.1
 - Composer
 - MySQL or any other supported database
+
+### Installation
+
+1. Clone the repository:
+
+```shell
+   git clone https://github.com/phonixcode/clothing.git
+```
+
+2. Navigate to the project directory:
+
+```shell
+   cd clothing
+```
+
+3. Install dependencies:
+
+```shell
+   composer install OR composer update
+```
+
+4. Copy the `.env.example` file to `.env`:
+
+```shell
+   cp .env.example .env
+```
+
+Update the .env file with your database credentials and email settings. 
+`DB_DATABASE`,
+`DB_USERNAME`, 
+`DB_PASSWORD`.
+
+`MAIL_MAILER`,
+`MAIL_HOST`,
+`MAIL_PORT`,
+`MAIL_USERNAME`,
+`MAIL_PASSWORD`,
+`MAIL_ENCRYPTION`,
+`MAIL_FROM_ADDRESS`,
+`MAIL_FROM_NAME`,
+
+5. Run migrations to create the database tables and seed data:
+
+```shell
+   php artisan migrate:fresh --seed
+```
+
+6. Start the development server:
+
+```shell
+   php artisan serve
+```
+
+You can now access the application at <http://localhost:8000>.
+
+
+### Troubleshooting
+
+If you encounter any issues during the setup process, you can refer to the <a href="https://laravel.com/docs/">Laravel documentation</a> for more information and troubleshooting tips.
+
+## Additional Configuration (Optional)
+
+Replace placeholders like `Project Name`, `your-username`, and `project-name` with actual details relevant to your project. This README.md file provides instructions for setting up the project, running migrations, seeding the database, starting the server, and running tests. You can add any additional sections or information as needed.
