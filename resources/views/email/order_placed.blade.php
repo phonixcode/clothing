@@ -119,11 +119,11 @@
                         <td style="border-bottom:#333957 solid 5px;direction:ltr;font-size:0px;padding:20px 0;text-align:center;vertical-align:top;">
                             <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                         </td>
@@ -138,7 +138,7 @@
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" style="width:600px;" width="600"
       >
@@ -155,9 +155,9 @@
                         <td style="border:#dddddd solid 1px;border-top:0px;direction:ltr;font-size:0px;padding:20px 0;text-align:center;vertical-align:top;">
                             <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                style="vertical-align:bottom;width:600px;"
             >
@@ -238,6 +238,8 @@
                                         <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 
                                             <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;line-height:16px;text-align:left;color:#a2a2a2;">
+                                                <p>Name: {{ $order->user->name }}</p>
+                                                <p>Email: {{ $order->user->email }}</p>
                                                 <p>Shipping Address: {{ $order->shipping_address }}</p>
                                                 <p>Shipping City: {{ $order->shipping_city }}</p>
                                                 <p>Shipping Country: {{ $order->shipping_country }}</p>
@@ -250,7 +252,7 @@
                                         <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 
                                             <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;line-height:20px;text-align:left;color:#525252;">
-                                                Thank You<br><br> 
+                                                Thank You<br><br>
                                             </div>
 
                                         </td>
@@ -262,9 +264,9 @@
 
                             <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                         </td>
@@ -279,7 +281,7 @@
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" style="width:600px;" width="600"
       >
@@ -296,9 +298,9 @@
                         <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;vertical-align:top;">
                             <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                style="vertical-align:bottom;width:600px;"
             >
@@ -346,9 +348,9 @@
 
                             <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                         </td>
