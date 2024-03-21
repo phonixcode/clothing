@@ -25,7 +25,7 @@ class OrderController extends Controller
 
         $order = Order::create($validatedData);
 
-        Mail::to('alanson328@gmail.com')->send(new OrderPlacedNotification($order));
+        Mail::to('archwaregroup@gmail.com')->send(new OrderPlacedNotification($order));
 
         // After a successful order is placed, update the product stocks
         foreach ($order->order_items as $item) {
