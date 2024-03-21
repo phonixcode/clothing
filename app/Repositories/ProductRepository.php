@@ -6,6 +6,11 @@ use App\Models\Product;
 
 class ProductRepository
 {
+    public function findById($id)
+    {
+        return Product::findOrFail($id);
+    }
+    
     public function getAll()
     {
         return Product::all();

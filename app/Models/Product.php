@@ -23,7 +23,7 @@ class Product extends Model
         'label',
         'status',
     ];
-    
+
 
     protected $casts = [
         'sizes' => 'array',
@@ -44,4 +44,16 @@ class Product extends Model
             $product->slug = Str::slug($product->title);
         });
     }
+
+    public function setImageAttribute($value)
+    {
+        if ($value instanceof \Illuminate\Http\UploadedFile) {
+            $imageName = time() . '.' . $value->getClientOriginalExtension();
+            $value->move(public_path('products'), $imageName);
+            $this->attributes['image'] = 'products/' . $imageName;
+        } else {
+            $this->attributes['image'] = $value;
+        }
+    }
+
 }

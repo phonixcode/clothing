@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductResource extends JsonResource
@@ -21,12 +22,12 @@ class ProductResource extends JsonResource
             'description' => $this->description,
             'price' => $this->price,
             'stock' => $this->stock,
-            'image' => $this->image,
-            'size' => $this->size,
+            'image' => URL::asset($this->image),
+            'sizes' => $this->sizes,
             'label' => $this->label,
             'status' => $this->status,
-            'gender' => $this->gender,
-            'color' => $this->color,
+            'genders' => $this->genders,
+            'colors' => $this->colors,
         ];
     }
 }

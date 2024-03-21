@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Product;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ProductSeeder extends Seeder
@@ -13,13 +15,16 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
+        $faker = \Faker\Factory::create();
+
+    
         $products = [
             [
-                'title' => 'T-shirt',
-                'slug' => 't-shirt',
-                'description' => 'Comfortable cotton t-shirt',
+                'title' => 'Top',
+                'slug' => 'top',
+                'description' => $faker->paragraph(4),
                 'stock' => 10,
-                'image' => 't-shirt.jpg',
+                'image' => 'products/1.jpg',
                 'price' => 19.99,
                 'sizes' => ['S', 'M', 'L', 'XL'],
                 'colors' => ['red', 'blue', 'green'],
@@ -28,11 +33,37 @@ class ProductSeeder extends Seeder
                 'status' => 'active',
             ],
             [
-                'title' => 'Jeans',
-                'slug' => 'jeans',
-                'description' => 'Classic denim jeans',
+                'title' => 'Short',
+                'slug' => 'short',
+                'description' => $faker->paragraph(4),
                 'stock' => 5,
-                'image' => 'jeans.jpg',
+                'image' => 'products/5.jpg',
+                'price' => 39.99,
+                'sizes' => ['28', '30', '32', '34'],
+                'colors' => ['blue', 'black'],
+                'genders' => ['men', 'women'],
+                'label' => 'popular',
+                'status' => 'active',
+            ],
+            [
+                'title' => 'Short Top',
+                'slug' => 'short-top',
+                'description' => $faker->paragraph(4),
+                'stock' => 5,
+                'image' => 'products/2.jpg',
+                'price' => 39.99,
+                'sizes' => ['28', '30', '32', '34'],
+                'colors' => ['blue', 'black'],
+                'genders' => ['men', 'women'],
+                'label' => 'popular',
+                'status' => 'active',
+            ],
+            [
+                'title' => 'Legg',
+                'slug' => 'legg',
+                'description' => $faker->paragraph(4),
+                'stock' => 5,
+                'image' => 'products/4.jpg',
                 'price' => 39.99,
                 'sizes' => ['28', '30', '32', '34'],
                 'colors' => ['blue', 'black'],

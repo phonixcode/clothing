@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\ProductRequest;
@@ -22,7 +23,7 @@ class ProductController extends Controller
     public function index(): JsonResponse
     {
         $products = $this->productRepository->getAll();
-        return response()->json(['status' => 'success', 'data' => $products], 200);
+        return response()->json(['status' => 'success', 'data' => ProductResource::collection($products)], 200);
     }
 
     /**
@@ -40,7 +41,7 @@ class ProductController extends Controller
     public function show($id): JsonResponse
     {
         $product = $this->productRepository->find($id);
-        return response()->json(['status' => 'success', 'data' => $product], 200);
+        return response()->json(['status' => 'success', 'data' => new ProductResource($product)], 200);
     }
 
     /**
@@ -57,6 +58,15 @@ class ProductController extends Controller
      */
     public function destroy($id): JsonResponse
     {
+        // Fetch the product by its ID
+        $product = $this->productRepository->findById($id);
+
+        // Delete the associated image file
+        $imagePath = public_path($product->image);
+        if (File::exists($imagePath)) {
+            File::delete($imagePath);
+        }
+    
         $this->productRepository->delete($id);
         return response()->json(['status' => 'success', 'message' => 'Product deleted successfully'], 200);
     }
