@@ -39,10 +39,9 @@ Follow these steps to set up the project on your local machine.
 ```
 
 Update the .env file with your database credentials and email settings. 
-`DB_DATABASE`,
-`DB_USERNAME`, 
-`DB_PASSWORD`.
-
+`DB_DATABASE = database_name`,
+`DB_USERNAME = user_name`, 
+`DB_PASSWORD = password`.
 `MAIL_MAILER`,
 `MAIL_HOST`,
 `MAIL_PORT`,
@@ -58,7 +57,19 @@ Update the .env file with your database credentials and email settings.
    php artisan migrate:fresh --seed
 ```
 
-6. Start the development server:
+6. Setup your redis connection (Optional): change `QUEUE_CONNECTION = redis`
+
+You need to start the queue worker to process queued jobs.
+
+```shell
+   php artisan queue:work
+```
+
+This command starts the queue worker, which will continuously process jobs from the queue until you stop it manually.
+
+Emails will be sent asynchronously in the background using the configured queue driver (Redis).
+
+7. Start the development server:
 
 ```shell
    php artisan serve
